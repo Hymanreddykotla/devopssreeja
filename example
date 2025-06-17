@@ -683,8 +683,7 @@ s3 bucket:
    13  cat config
    14  cat credentials
    15    cd
-   16  sudo apt-get install automake autotools-dev fuse g++ git libcurl4-gnutls-dev libfuse-dev libssl-dev libxml2-dev make pkg-config
-   17  apt-get install automake autotools-dev fuse g++ git libcurl4-gnutls-dev libfuse-dev libssl-dev libxml2-dev make pkg-config
+   16  
    18  yum install automake fuse fuse-devel gcc-c++ git libcurl-devel libxml2-devel make openssl-devel
    19  git clone https://github.com/s3fs-fuse/s3fs-fuse.git
    20  ll
@@ -699,6 +698,7 @@ s3 bucket:
    29  which s3fs
    30  touch /etc/passwd-s3fs
    31  vim /etc/passwd-s3fs
+        type   access key:secret key
    32  chmod 640 /etc/passwd-s3fs
    33  cd
    34  s3fs sriamju1234 /mnt -o passwd_file=/etc/passwd-s3fs
