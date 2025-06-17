@@ -15,6 +15,9 @@ passwd harry same for natasha and sarah
 usermod -G sysadm harry
 usermod -G sysadm natasha
 usermod -s /sbin/nologin sarah
+
+
+ cat /etc/passwd |grep -i sarah
 ####################################################################################################################
 ques.create a collabrative directory /shared/sysadm with th following characteristics:
 -Group owernship of /shared/sysadm is sysadm
@@ -704,3 +707,9 @@ s3 bucket:
    37  ll
    38  touch dev.txt{1..5}
    39  history
+=====================================================================================================
+MFA 
+first login to aws account -> security credentials -> mfa device
+give mfa device name -> scane using authentictor app -> provide two codes that comes in authenticator app 
+you can also disable it uh will see a option to remove 
+================================================================================================
