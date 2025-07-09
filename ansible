@@ -189,4 +189,33 @@ localhost ansible_connection=local ansible_python_interpreter=/usr/bin/python3
 #ansible-playbook ec2.yaml -C
 #ansible-playbook ec2.yaml 
 
----------------------eks cluster provisionin------------------------------------------
+---------------------add users-------------------------------
+yaml file:
+---
+- name: creating users
+  hosts: all
+  tasks:
+    - name: creating multiple users
+      user:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - sreeja
+        - ram
+        - sita
+---------------------------------------------------------------------
+-------------add users with uid--------------------------------------
+---
+- name: Creating users with specific UIDs
+  hosts: all
+  tasks:
+    - name: Creating multiple users with UIDs
+      user:
+        name: "{{ item.name }}"
+        uid: "{{ item.uid }}"
+        state: present
+      loop:
+        - { name: 'sreeja', uid: 2001 }
+        - { name: 'ram', uid: 2002 }
+        - { name: 'sita', uid: 2003 }
+--------------------------------------------------------------------
