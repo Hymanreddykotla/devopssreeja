@@ -219,3 +219,17 @@ yaml file:
         - { name: 'ram', uid: 2002 }
         - { name: 'sita', uid: 2003 }
 --------------------------------------------------------------------
+-------------------copy multiple file-------------------------------
+---
+- name: copied files
+  hosts: all
+  tasks:
+
+        - name: copy multiple files
+          copy:
+            src: "{{ item }}"
+            dest: /tmp
+          loop:
+               - /etc/passwd
+               - /etc/group
+-----------------------------------------------------------------------
