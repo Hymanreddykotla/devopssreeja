@@ -252,3 +252,25 @@ yaml file:
         count: 1
         state: present
 -------------------------------------------------------------------------------
+-----------------------------copy fstab----------------------------------------
+---
+- name: installing httpd and copying fstab file in tmp
+  hosts: ansible-target
+  tasks:
+
+    - name: installed httpd
+      dnf:
+        name: httpd
+        state: latest
+
+    - name: copied fstab file
+      copy:
+        src: fstab
+        dest: /tmp
+
+    - name: started httpd
+      systemd:
+        name: httpd
+        state: started
+        enabled: true
+--------------------------------------------------------------------------------------
