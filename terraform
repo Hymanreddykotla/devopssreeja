@@ -573,6 +573,28 @@ resource "aws_instance" "test" {
     Name = "${var.env_tag}"
   }
 }
+-----------------ami creation--------------------------------------------
+---------Creating ami from existing instance------------
+###Create AWS AMI from AWS INStance
+resource "aws_ami_from_instance" "my-images" {
+  name               = "terra-image"
+  source_instance_id = "i-0660b0a25473b00f5"
+
+  tags = {
+    Name = "Hello-world"
+  }
+}
+--------------------------------------------------------------------------------
+----------------------instance from ami-----------------------------------------
+resource "aws_instance" "from_ami" {
+  ami           = aws_ami_from_instance.my-images.id
+  instance_type = "t2.micro"  # or any type you prefer
+
+  tags = {
+    Name = "Instance-from-AMI"
+  }
+}
+---------------------------------------------------------------------------------
 
                         
                                 
