@@ -43,3 +43,8 @@ create cluster
    kubectl get svc
 -----Deleting cluster ---------
 kops delete cluster dev.k8s.sanjayskv.in --yes
+
+
+--------------------------------------------------------------------------
+autoscaling:
+kubectl autoscale rs frontend --min=3 --max=8
